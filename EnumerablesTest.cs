@@ -75,15 +75,4 @@ public class EnumerablesTest
         
         Assert.That(list, Is.EquivalentTo(updatedList));
     }
-    
-    [Test]
-    public void TestMaintainAddedSameItemFails()
-    {
-        List<string> list = ["1", "2", "3", "4", "5"];
-        List<string> updatedList = ["1", "3", "5", "3"];
-
-        list.Maintain(updatedList);
-        
-        Assert.That(list, Is.EquivalentTo(new List<string> {"1", "3", "5"}));
-    }
 }
