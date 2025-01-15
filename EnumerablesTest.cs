@@ -33,6 +33,17 @@ public class EnumerablesTest
     }
     
     [Test]
+    public void TestMaintainReordered()
+    {
+        List<string> list = ["1", "2", "3", "4", "5"];
+        List<string> updatedList = ["4", "3", "1", "2", "5"];
+
+        list.Maintain(updatedList);
+        
+        Assert.That(list, Is.EquivalentTo(updatedList));
+    }
+    
+    [Test]
     public void TestMaintainBeginningRemoved()
     {
         List<string> list = ["1", "2", "3", "4", "5"];
