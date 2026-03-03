@@ -86,4 +86,22 @@ public class EnumerablesTest
         
         Assert.That(list, Is.EquivalentTo(updatedList));
     }
+
+    [Test]
+    public void TestContainsAnyTrue()
+    {
+        List<string> list = ["1", "2", "3", "4", "5"];
+        List<string> otherList = ["0", "2", "6"];
+        
+        Assert.That(list.ContainsAny(otherList), Is.True);
+    }
+
+    [Test]
+    public void TestContainsAnyFalse()
+    {
+        List<string> list = ["1", "2", "3", "4", "5"];
+        List<string> otherList = ["0", "6", "7"];
+        
+        Assert.That(list.ContainsAny(otherList), Is.False);
+    }
 }
