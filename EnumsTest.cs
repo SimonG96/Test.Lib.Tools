@@ -13,7 +13,7 @@ public class EnumsTest
     [Test]
     public void TestGetAttribute()
     {
-        string description = TestEnum.FirstValue.GetAttribute<System.ComponentModel.DescriptionAttribute>().Description;
+        string? description = TestEnum.FirstValue.GetAttribute<System.ComponentModel.DescriptionAttribute>()?.Description;
         Assert.That(description, Is.EqualTo("First Value"));
     }
 
@@ -22,10 +22,10 @@ public class EnumsTest
     {
         Type enumType = typeof(TestEnum);
 
-        List<string> descriptions = [];
+        List<string?> descriptions = [];
         foreach (Enum value in enumType.GetEnumValues().OfType<Enum>())
         {
-            string description = value.GetAttribute<System.ComponentModel.DescriptionAttribute>().Description;
+            string? description = value.GetAttribute<System.ComponentModel.DescriptionAttribute>()?.Description;
             descriptions.Add(description);
         }
 
